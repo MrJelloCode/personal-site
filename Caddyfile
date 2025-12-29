@@ -1,0 +1,4 @@
+malaravan.dev {
+	root * /srv
+	file_server
+}
