@@ -2,193 +2,230 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Malaravan | F1 Developer Portfolio</title>
+  <title>Malaravan | Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     :root {
-      --bg: #0b0b0f;
-      --panel: #12121a;
-      --text: #eaeaf0;
-      --muted: #9a9ab0;
-      --accent: #e10600;
-      --green: #00ff5a;
+      --bg: #0d0d11;
+      --panel: #14141b;
+      --text: #e8e8ee;
+      --muted: #a0a0b5;
+      --accent: #e10600; /* F1 red */
+      --border: #22222c;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      font-family: system-ui, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Inter, system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 3rem 1.5rem;
     }
 
     header {
-      padding: 4rem 2rem;
-      border-bottom: 2px solid var(--accent);
-      background: radial-gradient(circle at top, #220000, #0b0b0f);
+      border-bottom: 1px solid var(--border);
     }
 
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
+    header .container {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
 
-    h1 span {
-      color: var(--accent);
-      text-shadow: 0 0 20px rgba(225,6,0,.5);
-    }
-
-    .hero {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      gap: 2rem;
-    }
-
-    /* ===== F1 START LIGHTS ===== */
-    .lights {
-      display: flex;
-      gap: 10px;
-    }
-
-    .light {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #2a2a2a;
-      animation: startLights 6s infinite;
-    }
-
-    .light:nth-child(1) { animation-delay: 0s; }
-    .light:nth-child(2) { animation-delay: .5s; }
-    .light:nth-child(3) { animation-delay: 1s; }
-    .light:nth-child(4) { animation-delay: 1.5s; }
-    .light:nth-child(5) { animation-delay: 2s; }
-
-    @keyframes startLights {
-      0%   { background: #2a2a2a; }
-      30%  { background: var(--accent); box-shadow: 0 0 15px var(--accent); }
-      60%  { background: var(--green); box-shadow: 0 0 20px var(--green); }
-      100% { background: #2a2a2a; box-shadow: none; }
-    }
-
-    /* ===== REV BAR ===== */
-    .rev-container {
-      background: #0f0f17;
-      border-radius: 8px;
-      overflow: hidden;
-      height: 16px;
-      border: 1px solid #222;
-    }
-
-    .rev-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--accent), var(--green));
-      animation: rev 2.5s infinite ease-in-out;
-    }
-
-    @keyframes rev {
-      0% { width: 10%; }
-      50% { width: 100%; }
-      100% { width: 10%; }
-    }
-
-    /* ===== SPEEDOMETER ===== */
-    .speed {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--green);
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 3rem 2rem;
+    main .container {
       display: grid;
       gap: 3rem;
     }
 
-    section {
-      background: var(--panel);
-      padding: 2rem;
-      border-radius: 14px;
-      border-left: 4px solid var(--accent);
+    /* ===== HERO ===== */
+    .hero {
+      display: grid;
+      gap: 1rem;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      max-width: 600px;
       color: var(--muted);
-      border-top: 1px solid #222;
+      font-size: 1.05rem;
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      display: grid;
+      gap: 1rem;
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ===== PROJECTS ===== */
+    .projects {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      border-radius: 10px;
+    }
+
+    .project h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    footer .container {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      footer .container {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="hero">
-    <div class="lights">
-      <div class="light"></div>
-      <div class="light"></div>
-      <div class="light"></div>
-      <div class="light"></div>
-      <div class="light"></div>
-    </div>
-
-    <h1>Malaravan <span>Code Racer</span></h1>
-
-    <div class="rev-container">
-      <div class="rev-bar"></div>
-    </div>
-
-    <div class="speed">
-      Speed: <span id="speed">0</span> km/h
+  <div class="container">
+    <div class="hero">
+      <h1>Malaravan <span>Developer</span></h1>
+      <p>
+        Programmer focused on clean code, performance, and reliable systems.
+        Inspired by Formula 1 — precision, efficiency, and consistency.
+      </p>
     </div>
   </div>
 </header>
 
 <main>
-  <section>
-    <h2>🏁 About Me</h2>
-    <p>
-      I'm <strong>Malaravan</strong>, a developer who treats performance like an
-      F1 lap — every millisecond matters.
-    </p>
-  </section>
+  <div class="container">
+    <section>
+      <h2>About</h2>
+      <p>
+        I build efficient, maintainable software and enjoy working with
+        Linux, servers, and modern web technologies.
+      </p>
+    </section>
 
-  <section>
-    <h2>⚙️ Skills</h2>
-    <p>HTML • CSS • JavaScript • Linux • Git • Servers</p>
-  </section>
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Linux</span>
+        <span class="skill">Git</span>
+        <span class="skill">Networking</span>
+      </div>
+    </section>
 
-  <section>
-    <h2>🏎️ Projects</h2>
-    <p>High-performance websites, home servers, automation, and dev tooling.</p>
-  </section>
+    <section>
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <h3>Personal Website</h3>
+          <p>Fast, lightweight static website deployed via Git.</p>
+        </div>
+
+        <div class="project">
+          <h3>Home Server</h3>
+          <p>
+            Ubuntu server with tunneling, automation, and version-controlled
+            deployments.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        GitHub · Email · LinkedIn
+      </p>
+    </section>
+  </div>
 </main>
 
 <footer>
-  © 2025 Malaravan • Flat out 🏁
+  <div class="container">
+    <span>© 2025 Malaravan</span>
+    <span>Built with precision</span>
+  </div>
 </footer>
-
-<script>
-  // Speedometer animation
-  const speedEl = document.getElementById("speed");
-  let speed = 0;
-  let up = true;
-
-  setInterval(() => {
-    if (up) speed += 5;
-    else speed -= 5;
-
-    if (speed >= 320) up = false;
-    if (speed <= 0) up = true;
-
-    speedEl.textContent = speed;
-  }, 60);
-</script>
 
 </body>
 </html>
